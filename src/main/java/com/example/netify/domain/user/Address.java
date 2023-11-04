@@ -1,18 +1,19 @@
 package com.example.netify.domain.user;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Data;
 
 @Entity
-@Table(name = "adresses")
+@Table(name = "addresses")
 @Data
-public class Adress {
+public class Address {
     @Id
-    @Column(name = "adress_id")
+    @Column(name = "address_id")
     private int addressId;
+
+    @OneToOne
+    @JoinColumn(name = "user_id")
+    private User user;
 
     @Column(name = "city", nullable = false)
     private String city;

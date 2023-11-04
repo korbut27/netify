@@ -8,9 +8,9 @@ import lombok.Data;
 import java.util.Date;
 
 @Entity
-@Table(name = "users_connections")
+@Table(name = "connections")
 @Data
-public class UsersConnection {
+public class Connection {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "connection_id")

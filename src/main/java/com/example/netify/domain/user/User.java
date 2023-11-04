@@ -45,11 +45,5 @@ public class User {
     @Column(name = "role")
     @Enumerated(value = EnumType.STRING)
     private Set<Role> roles;
-
-    @ElementCollection
-    @CollectionTable(name = "users_adresses", joinColumns = @JoinColumn(name = "user_id"))
-    @Column(name = "adress_id")
-    private Set<Integer> addresses;
-
 }
 
