@@ -14,7 +14,7 @@ public class Connection {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "connection_id")
-    private int connectionId;
+    private Long connectionId;
 
     @OneToOne
     @JoinColumn(name = "user_id")
@@ -27,6 +27,7 @@ public class Connection {
     @Column(name = "connection_date")
     private Date connectionDate;
 
-    @Column(name = "status", nullable = false)
-    private String status;
+    @Column(name = "status")
+    @Enumerated(value = EnumType.STRING)
+    private ConnectionStatus status;
 }

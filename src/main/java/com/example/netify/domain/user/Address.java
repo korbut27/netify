@@ -9,7 +9,7 @@ import lombok.Data;
 public class Address {
     @Id
     @Column(name = "address_id")
-    private int addressId;
+    private Long addressId;
 
     @OneToOne
     @JoinColumn(name = "user_id")

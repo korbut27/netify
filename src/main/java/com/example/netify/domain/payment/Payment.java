@@ -14,7 +14,7 @@ public class Payment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "payment_id")
-    private int paymentId;
+    private Long paymentId;
 
     @OneToOne
     @JoinColumn(name = "user_id")
