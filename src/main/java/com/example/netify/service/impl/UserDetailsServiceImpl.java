@@ -1,8 +1,10 @@
-package com.example.netify.service;
+package com.example.netify.service.impl;
 
 import com.example.netify.domain.user.Role;
 import com.example.netify.domain.user.User;
 import com.example.netify.repository.user.UserRepository;
+import com.example.netify.service.UserService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -15,23 +17,16 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 @Service
+@RequiredArgsConstructor
 public class UserDetailsServiceImpl implements UserDetailsService {
 
-
-    private final UserRepository userRepository;
-
-    public UserDetailsServiceImpl(UserRepository userRepository) {
-        this.userRepository = userRepository;
-    }
+    private final UserService userService;
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        User user = userRepository.findByLogin(username);
-        if (user == null) {
-            throw new UsernameNotFoundException("User not found");
-        }
+        User user = userService.getByUsername(username);
         return new org.springframework.security.core.userdetails.User(
-                user.getLogin(),
+                user.getUsername(),
                 user.getPassword(),
                 getAuthorities(user.getRoles())
         );

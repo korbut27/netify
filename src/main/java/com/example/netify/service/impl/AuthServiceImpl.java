@@ -1,5 +1,6 @@
-package com.example.netify.service;
+package com.example.netify.service.impl;
 
+import com.example.netify.service.AuthService;
 import com.example.netify.web.dto.auth.UserLoginRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -21,7 +22,7 @@ public class AuthServiceImpl implements AuthService {
     public ResponseEntity<String> login(UserLoginRequest loginRequest) {
         try {
             Authentication authentication = authenticationManager.authenticate(
-                    new UsernamePasswordAuthenticationToken(loginRequest.getLogin(),
+                    new UsernamePasswordAuthenticationToken(loginRequest.getUsername(),
                             loginRequest.getPassword()));
 
             SecurityContextHolder.getContext().setAuthentication(authentication);

@@ -16,11 +16,14 @@ public class User {
     @Column(name = "user_id")
     private Long userId;
 
-    @Column(name = "login", nullable = false)
-    private String login;
+    @Column(name = "username", nullable = false)
+    private String username;
 
     @Column(name = "password", nullable = false)
     private String password;
+
+    @Transient
+    private String passwordConfirmation;
 
     @Column(name = "first_name", nullable = false)
     private String firstName;
@@ -35,10 +38,7 @@ public class User {
     private String email;
 
     @Column(name = "balance")
-    private int balance;
-
-    @Column(name = "creation_date", nullable = false)
-    private Date creationDate;
+    private int balance = 0;
 
     @ElementCollection
     @CollectionTable(name = "users_roles")
