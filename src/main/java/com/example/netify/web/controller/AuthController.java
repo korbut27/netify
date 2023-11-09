@@ -9,7 +9,6 @@ import com.example.netify.web.dto.validation.OnCreate;
 import com.example.netify.web.mappers.UserMapper;
 import lombok.RequiredArgsConstructor;
 
-import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -28,7 +27,7 @@ public class AuthController {
     private final UserMapper userMapper;
 
     @PostMapping("/login")
-    public ResponseEntity<String> login(@Validated @RequestBody UserLoginRequest loginRequest) {
+    public String login(@Validated @RequestBody UserLoginRequest loginRequest) {
         return authService.login(loginRequest);
     }
 

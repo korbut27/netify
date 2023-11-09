@@ -1,5 +1,6 @@
-package com.example.netify.domain.user;
+package com.example.netify.domain.address;
 
+import com.example.netify.domain.user.User;
 import jakarta.persistence.*;
 import lombok.Data;
 
