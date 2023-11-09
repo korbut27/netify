@@ -40,7 +40,7 @@ public class User {
     @Column(name = "balance")
     private int balance = 0;
 
-    @ElementCollection
+    @ElementCollection(fetch = FetchType.EAGER)
     @CollectionTable(name = "users_roles")
     @Column(name = "role")
     @Enumerated(value = EnumType.STRING)

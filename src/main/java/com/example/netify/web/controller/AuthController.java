@@ -3,7 +3,8 @@ package com.example.netify.web.controller;
 import com.example.netify.domain.user.User;
 import com.example.netify.service.AuthService;
 import com.example.netify.service.UserService;
-import com.example.netify.web.dto.auth.UserLoginRequest;
+import com.example.netify.web.dto.auth.JwtRequest;
+import com.example.netify.web.dto.auth.JwtResponse;
 import com.example.netify.web.dto.user.UserDto;
 import com.example.netify.web.dto.validation.OnCreate;
 import com.example.netify.web.mappers.UserMapper;
@@ -27,7 +28,7 @@ public class AuthController {
     private final UserMapper userMapper;
 
     @PostMapping("/login")
-    public String login(@Validated @RequestBody UserLoginRequest loginRequest) {
+    public JwtResponse login(@Validated @RequestBody JwtRequest loginRequest) {
         return authService.login(loginRequest);
     }
 

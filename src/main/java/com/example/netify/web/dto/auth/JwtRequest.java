@@ -4,7 +4,7 @@ import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
 @Data
-public class UserLoginRequest {
+public class JwtRequest {
 
     @NotNull(message = "Username must be not null.")
     private String username;
